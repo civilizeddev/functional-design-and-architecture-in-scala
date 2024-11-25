@@ -1,8 +1,8 @@
 package andromeda.common.assets
 
-import andromeda.hardware.Common.*
 import andromeda.hardware.Common.ComponentClass.{Controllers, Sensors}
 import andromeda.hardware.Common.Parameter.{Pressure, Temperature}
+import andromeda.hardware.Common.{ComponentPassport, PhysicalGuid}
 import andromeda.hardware.Hdl
 import andromeda.hardware.Hdl.ComponentDef.{Controller, Sensor}
 import andromeda.hardware.Hdl.{ComponentDef, ComponentIndex, Hdl}

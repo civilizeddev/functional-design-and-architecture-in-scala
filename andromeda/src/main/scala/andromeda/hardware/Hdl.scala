@@ -1,6 +1,7 @@
 package andromeda.hardware
 
 import andromeda.hardware.Common.*
+import andromeda.hardware.Common.ComponentClass.{Controllers, Sensors}
 
 object Hdl {
   opaque type ComponentIndex = String
@@ -16,10 +17,10 @@ object Hdl {
   type Hdl = List[ComponentDef]
 
   def sensor(guid: PhysicalGuid, vendor: Vendor, name: ComponentName, idx: ComponentIndex, param: Parameter): ComponentDef = {
-    ComponentDef.Sensor(ComponentPassport(ComponentClass.Sensors, name, guid, vendor), idx, param)
+    ComponentDef.Sensor(ComponentPassport(Sensors, name, guid, vendor), idx, param)
   }
 
   def controller(guid: PhysicalGuid, vendor: Vendor, name: ComponentName, idx: ComponentIndex): ComponentDef = {
-    ComponentDef.Controller(ComponentPassport(ComponentClass.Controllers, name, guid, vendor), idx)
+    ComponentDef.Controller(ComponentPassport(Controllers, name, guid, vendor), idx)
   }
 }

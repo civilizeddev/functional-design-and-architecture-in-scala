@@ -1,9 +1,9 @@
 package andromeda.vendors
 
 import andromeda.hardware.Common
+import andromeda.hardware.Common.ComponentClass.{Controllers, Sensors}
+import andromeda.hardware.Common.Parameter.Temperature
 import andromeda.hardware.Common.*
-import andromeda.hardware.Common.ComponentClass.*
-import andromeda.hardware.Common.Parameter.*
 import andromeda.hardware.components.api.{ControllerAPI, SensorAPI}
 import zio.*
 
