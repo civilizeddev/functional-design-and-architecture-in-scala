@@ -7,5 +7,5 @@ import zio.*
 trait SensorAPI {
   def reset: UIO[Unit]
   def readMeasurement: UIO[Measurement]
-  def setCallback(callback: Period => UIO[Measurement]): UIO[Unit]
+  def setCallback(period: Period, callback: UIO[Measurement]): UIO[Unit]
 }
