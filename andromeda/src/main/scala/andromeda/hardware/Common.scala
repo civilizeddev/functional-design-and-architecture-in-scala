@@ -1,5 +1,8 @@
 package andromeda.hardware
 
+import cats.*
+import cats.derived.*
+
 object Common {
 
   /**
@@ -18,12 +21,13 @@ object Common {
     def apply(value: String): ComponentName = value
   }
 
-  enum Parameter {
+  enum Parameter derives Show, Eq, Order {
     case Temperature, Pressure
   }
 
-  enum ComponentClass {
-    case Sensors, Controllers
+  enum ComponentClass derives Show, Eq, Order {
+    case Sensors(parameter: Parameter)
+    case Controllers
   }
 
   opaque type Vendor = String
@@ -31,11 +35,11 @@ object Common {
     def apply(value: String): Vendor = value
   }
 
-  case class ComponentPassport(cls: ComponentClass, name: ComponentName, guid: PhysicalGuid, vendor: Vendor)
+  case class ComponentPassport(cls: ComponentClass, name: ComponentName, guid: PhysicalGuid, vendor: Vendor) derives Show, Eq, Order
 
-  case class Measurement(parameter: Parameter, value: Float)
+  case class Measurement(parameter: Parameter, value: Float) derives Show, Eq, Order
 
-  enum Period {
+  enum Period derives Show, Eq, Order {
     case Secondly
   }
 }
